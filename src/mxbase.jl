@@ -16,7 +16,7 @@ function matlab_homepath()
                 end
             end
         elseif iswindows()
-            default_dir = Sys.WORD_SIZE == 32 ? "C:\\Program Files (x86)\\MATLAB" : "C:\\Program Files\\MATLAB"
+            default_dir = "D:"
             if isdir(default_dir)
                 dirs = readdir(default_dir)
                 filter!(dir -> occursin(r"^R[0-9]+[ab]$", dir), dirs)
@@ -26,6 +26,7 @@ function matlab_homepath()
             end
         end
     end
+    matlab_home = raw"D:\MATLAB"
     if isempty(matlab_home)
         error("The MATLAB path could not be found. Set the MATLAB_HOME environmental variable to specify the MATLAB path.")
     end
